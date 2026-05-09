@@ -1,26 +1,15 @@
 [
     {
-        "nome": "Beatriz",
-        "cpf": "123",
-        "saldo": 1000,
-        "score": 800
-    },
-    {
-        "nome": "Beatriz",
-        "cpf": "11170000000",
-        "saldo": 2000.0,
-        "score": 500
-    },
-    {
-        "nome": "Beatriz",
-        "cpf": "11111111111",
-        "saldo": 2200.0,
-        "score": 650
-    },
-    {
-        "nome": "Amanda",
+        "nome": "amanda",
         "cpf": "22222222222",
-        "saldo": 3000.0,
-        "score": 650
+        "saldo": 19800.0,
+        "score": 550,
+        "renda_mensal": 3500.0,
+        "divida": 9600.0,
+        "negativado": false,
+        "historico": [
+            "Dep\u00f3sito de R$ 50.00",
+            "Saque de R$ 250.00"
+        ]
     }
 ]
