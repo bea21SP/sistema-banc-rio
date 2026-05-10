@@ -1,0 +1,8 @@
+app.py
+│
+├── cliente_service.py
+├── emprestimo_service.py
+├── renegociacao_service.py
+├── score_service.py
+│
+└── json_manager.py

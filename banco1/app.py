@@ -1,8 +1,15 @@
 # Criando uma lista, colocando clientes nela e salvando no json.
 from utils.json_manager import carregar_clientes, salvar_clientes
+from services.cliente_service import cadastrar_cliente
+from services.cliente_service import listar_clientes
+from services.cliente_service import buscar_cliente
 from services.cliente_service import realizar_deposito
 from services.cliente_service import realizar_saque
-from services.cliente_service import realizar_PIX
+from services.emprestimo_service import realizar_emprestimo
+from services.renegociacao_service import pagar_divida
+from services.renegociacao_service import verificar_negativacao
+from services.renegociacao_service import renegociar_divida
+from services.score_service import consultar_SCORE
 
 
 while True: # “repita infinitamente”
@@ -29,86 +36,16 @@ while True: # “repita infinitamente”
     # CADASTRAR CLIENTE
     if opcao == "1":
 
-        nome = input("Digite o nome: ")
-        cpf = input("Digite o CPF: ")
-        saldo = float(input("Digite o saldo: "))
-        score = int(input("Digite o score: "))
-        renda_mensal = float(input("Digite a renda mensal: "))
-
-        novo_cliente = {
-            "nome": nome,
-            "cpf": cpf,
-            "saldo": saldo,
-            "score": score,
-            "renda_mensal": renda_mensal,
-            "divida": 0,
-            "historico": []
-        }
-
-        clientes = carregar_clientes()
-
-        cpf_existe = False # ainda não encontrei o CPF
-
-        # Percorre todos os clientes
-        for cliente in clientes:
-
-            if cliente["cpf"] == cpf: #compara CPF no json
-                cpf_existe = True
-                break
-
-
-        if cpf_existe:
-            print("CPF já cadastrado!")
-
-        else:
-            clientes.append(novo_cliente)
-
-            salvar_clientes(clientes)
-
-            print("Cliente cadastrado com sucesso!")
-
-    # LISTAR CLIENTES
+        cadastrar_cliente()
+        
     elif opcao == "2":
-
-        clientes = carregar_clientes()
-
-        print("\n===== CLIENTES =====")
-
-        # Pegando cada cliente cadastrado
-        for cliente in clientes:
-            print(f"""
-    Nome: {cliente["nome"]}
-    CPF: {cliente["cpf"]}
-    Saldo: R$ {cliente["saldo"]}
-    Score: {cliente["score"]}
-    """)
             
-    # Buscar Cliente
+        listar_clientes()   
+
     elif opcao == "3":
-
-        cpf_busca = input("Digite o CPF do cliente: ")
-
-        clientes = carregar_clientes()
-
-        cliente_encontrado = False
-
-        for cliente in clientes:
-            if cliente["cpf"] == cpf_busca:
-
-                print("\n CLIENTE ENCONTRADO")
-                print(f"""
-Nome: {cliente["nome"]}
-CPF: {cliente["cpf"]}
-Saldo: R$ {cliente["saldo"]}
-Score: {cliente["score"]}
-""")
-                cliente_encontrado = True
-                break
-
-        if not cliente_encontrado:
-            print("Cliente não encontrado!")
-
-    # Depósito
+        
+        buscar_cliente()
+    
     elif opcao == "4":
         
         realizar_deposito()
@@ -126,7 +63,7 @@ Score: {cliente["score"]}
         consultar_SCORE()      
         
     elif opcao == "8":
-        fazer_emprestimo()    
+        realizar_emprestimo()    
         
     elif opcao == "9":
         
@@ -146,14 +83,54 @@ Score: {cliente["score"]}
     elif opcao == "13":
         print("Encerrando sistema...")
         break
-
     
-
     # OPÇÃO INVÁLIDA
     else:
         print("Opção inválida!")    
         
-""""
+"""
+    # LISTAR CLIENTES
+    elif opcao == "2":
+
+        clientes = carregar_clientes()
+
+        print("\n===== CLIENTES =====")
+
+        # Pegando cada cliente cadastrado
+        for cliente in clientes:
+            print(f"""
+#Nome: {cliente["nome"]}
+#CPF: {cliente["cpf"]}
+#Saldo: R$ {cliente["saldo"]}
+#Score: {cliente["score"]}
+#""")
+"""          
+    # Buscar Cliente
+    elif opcao == "3":
+
+        cpf_busca = input("Digite o CPF do cliente: ")
+
+        clientes = carregar_clientes()
+
+        cliente_encontrado = False
+
+        for cliente in clientes:
+            if cliente["cpf"] == cpf_busca:
+
+                print("\n CLIENTE ENCONTRADO")
+                print(f"""
+#Nome: {cliente["nome"]}
+#CPF: {cliente["cpf"]}
+#Saldo: R$ {cliente["saldo"]}
+#Score: {cliente["score"]}
+""")
+                cliente_encontrado = True
+                break
+
+        if not cliente_encontrado:
+            print("Cliente não encontrado!")
+
+
         cpf_busca = input("Digite o CPF do cliente: ")
 
         clientes = carregar_clientes()
@@ -504,4 +481,4 @@ Score: {cliente["score"]}
     else:
         print("Opção inválida!")
         
-"""        
+"""       

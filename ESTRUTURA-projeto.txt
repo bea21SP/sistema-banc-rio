@@ -1,0 +1,9 @@
+open_finance/
+│
+├── banco_a/
+│   └── clientes.json
+│
+├── banco_b/
+│   └── clientes.json
+│
+└── openfinance_service.py
