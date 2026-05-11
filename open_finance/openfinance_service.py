@@ -3,7 +3,7 @@ import json
 
 def consultar_openfinance():
 
-    cpf_busca = input("Digite CPF do cliente: ")
+    token = input("Digite token de autorização: ")
 
     bancos = [
         "banco1/database/clientes.json",
@@ -22,7 +22,7 @@ def consultar_openfinance():
 
         for cliente in clientes:
 
-            if cliente["cpf"] == cpf_busca:
+            if cliente["token"] == token:
 
                 print("\nDados Open Finance")
 

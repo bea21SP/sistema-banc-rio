@@ -130,7 +130,7 @@ while True: # “repita infinitamente”
         if not cliente_encontrado:
             print("Cliente não encontrado!")
 
-
+realizar depósito
         cpf_busca = input("Digite o CPF do cliente: ")
 
         clientes = carregar_clientes()

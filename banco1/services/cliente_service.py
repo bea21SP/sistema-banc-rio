@@ -7,7 +7,10 @@ def cadastrar_cliente():
     saldo = float(input("Digite o saldo: "))
     score = int(input("Digite o score: "))
     renda_mensal = float(input("Digite a renda mensal: "))
+    token = cpf + "token"
 
+    token = cpf + "token"
+    
     novo_cliente = {
         "nome": nome,
         "cpf": cpf,
@@ -17,6 +20,7 @@ def cadastrar_cliente():
         "divida": 0,
         "historico": [],
         "negativado": False,
+        "token": token
     }
 
     clientes = carregar_clientes()
@@ -30,15 +34,17 @@ def cadastrar_cliente():
             cpf_existe = True
             break
 
-        if cpf_existe:
-            print("CPF já cadastrado!")
+    if cpf_existe:
+        print("CPF já cadastrado!")
 
-        else:
-            clientes.append(novo_cliente)
+    else:
+        clientes.append(novo_cliente)
 
-            salvar_clientes(clientes)
+        salvar_clientes(clientes)
 
-            print("Cliente cadastrado com sucesso!")
+        print("Cliente cadastrado com sucesso!")
+                
+        print(f"Token gerado: {token}")
 
 
 def listar_clientes():
@@ -47,7 +53,7 @@ def listar_clientes():
 
     print("\n===== CLIENTES =====")
 
-    # Pegando cada cliente cadastrado
+    # Pegando cada cliente cadastra do
     for cliente in clientes:
         print(f"""
 Nome: {cliente["nome"]}
@@ -180,7 +186,7 @@ def realizar_PIX():
 
             else:
                 remetente["saldo"] -= valor
-                cliente["historico"].append(f"PIX enviado de R$ {valor:.2f}")
+                remetente["historico"].append(f"PIX enviado de R$ {valor:.2f}")
                 destinatario["saldo"] += valor
                 destinatario["historico"].append(f"PIX recebido de R$ {valor:.2f}")
 

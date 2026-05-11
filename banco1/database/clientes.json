@@ -1,28 +1,13 @@
 [
     {
-        "nome": "amanda",
-        "cpf": "22222222222",
-        "saldo": 19800.0,
-        "score": 550,
-        "renda_mensal": 3500.0,
-        "divida": 9600.0,
-        "negativado": false,
-        "historico": [
-            "Depósito de R$ 50.00",
-            "Saque de R$ 250.00"
-        ]
-    },
-    {
         "nome": "beatriz",
         "cpf": "11111111111",
-        "saldo": 7500.0,
-        "score": 700,
-        "renda_mensal": 2500.0,
-        "divida": 2000.0,
-        "historico": [
-            "Depósito de R$ 500.00",
-            "Empréstimo aprovado de R$ 2000.00"
-        ],
-        "negativado": false
+        "saldo": 5000.0,
+        "score": 750,
+        "renda_mensal": 3500.0,
+        "divida": 0,
+        "historico": [],
+        "negativado": false,
+        "token": "11111111111token"
     }
 ]
